@@ -154,6 +154,9 @@
             border-radius: 16px;
             padding: 24px;
             transition: transform 0.2s, border-color 0.2s;
+            display: block;
+            text-decoration: none;
+            color: inherit;
         }
 
         .research-card:hover {
@@ -290,6 +293,23 @@
             display: flex;
             align-items: center;
             gap: 4px;
+        }
+
+        .project-topics {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 10px;
+        }
+
+        .project-topics .topic {
+            background: rgba(56, 189, 248, 0.08);
+            border: 1px solid rgba(56, 189, 248, 0.18);
+            color: var(--accent);
+            padding: 3px 9px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 500;
         }
 
         .lang-dot {
@@ -476,7 +496,7 @@
         <section id="research">
             <h2><span class="icon">🔬</span> Research</h2>
             <div class="research-list">
-                <div class="research-card">
+                <a href="https://github.com/Cerulime/llvm-project" class="research-card" target="_blank">
                     <h3>
                         CRISP
                         <span class="research-labels">
@@ -494,8 +514,8 @@
                         <span class="tag">MLIR</span>
                         <span class="tag">Static Analysis</span>
                     </div>
-                </div>
-                <div class="research-card">
+                </a>
+                <a href="https://www.dimva.org/dimva2026/#program" class="research-card" target="_blank">
                     <h3>
                         MirrorShield
                         <span class="research-labels">
@@ -512,7 +532,7 @@
                         <span class="tag">Docker</span>
                         <span class="tag">QEMU</span>
                     </div>
-                </div>
+                </a>
             </div>
         </section>
 
@@ -537,8 +557,8 @@
                         Black Box 内核故障诊断系统
                         <span class="project-date">2025 Fall</span>
                     </h3>
-                    <p>华为合作项目。面向现网生产环境设计低侵入内核故障诊断系统，基于 Recording-Analysis 双阶段架构与 DMA 传输机制，引入 Async-fork 异步 checkpoint
-                        替代同步 gcore，结合 eBPF/KFunc 实时捕获系统调用并在内核态完成数据过滤聚合，显著降低 checkpoint 延迟与系统抖动。</p>
+                    <p>华为合作项目。面向现网生产环境的低侵入内核故障诊断系统，基于 Recording-Analysis 架构与 DMA 传输，以异步 fork 替代同步 gcore，结合 eBPF+KFunc
+                        实时捕获过滤聚合系统调用，显著降低 checkpoint 延迟与系统抖动。</p>
                     <div class="meta">
                         <span><span class="lang-dot" style="background:#555;"></span> C</span>
                         <span><span class="lang-dot" style="background:#6e4a13;"></span> eBPF</span>
@@ -548,12 +568,11 @@
 
                 <a href="https://github.com/sustech-os-2026spring/project-team-666" class="project-card">
                     <h3>
-                        Linux File System
+                        ext2/ext4 File System
                         <span class="project-date">2026 Spring</span>
                     </h3>
-                    <p>从零实现 Linux 内核 VFS 抽象层与完整 ext2 文件系统，涵盖 inode 与目录项管理、多级块分配、页缓存及 VFS 统一接口设计，并在此基础上引入日志机制、Extents等
-                        ext4
-                        核心特性完成扩展演进，大幅提升FS读写性能。</p>
+                    <p>从零实现 Linux 内核 VFS 抽象层与完整 ext2 文件系统，涵盖 inode 与目录项管理、多级块分配、页缓存及 VFS 统一接口设计，并在此基础上引入日志机制、Extents 等
+                        ext4 核心特性完成扩展演进，大幅提升 FS 读写性能。</p>
                     <div class="meta">
                         <span><span class="lang-dot" style="background:#555;"></span> C</span>
                         <span><span class="lang-dot" style="background:#a43700;"></span> Linux Kernel</span>
@@ -568,8 +587,9 @@
                     <p>基于 Streamlit 构建学生生产力 Agent 的可视化交互前端，后端接入 DeepSeek API
                         实现智能任务拆解、自然语言日程规划与多轮对话调度，负责日程系统子模块设计与提示工程优化。</p>
                     <div class="meta">
+                        <span><span class="lang-dot" style="background:#3572A5;"></span> Python</span>
                         <span><span class="lang-dot" style="background:#3178c6;"></span> Streamlit</span>
-                        <span><span class="lang-dot" style="background:#f59e0b;"></span> Agent</span>
+                        <span><span class="lang-dot" style="background:#4b5563;"></span> DeepSeek API</span>
                     </div>
                 </a>
 
@@ -585,6 +605,18 @@
                     </div>
                 </a>
 
+                <a href="https://github.com/XTC917/CS305_2024fall_SUSTC" class="project-card" target="_blank">
+                    <h3>
+                        图书馆管理系统
+                        <span class="project-date">2024 Fall</span>
+                    </h3>
+                    <p>基于 PostgreSQL 设计并实现高性能图书馆管理系统，通过索引设计、查询计划调优与事务隔离策略优化，在班级评测中查询速率位列前 10%。</p>
+                    <div class="meta">
+                        <span><span class="lang-dot" style="background:#336791;"></span> PostgreSQL</span>
+                        <span><span class="lang-dot" style="background:#e535ab;"></span> gradle</span>
+                    </div>
+                </a>
+
                 <a href="#" class="project-card">
                     <h3>
                         Happy Match
@@ -593,7 +625,7 @@
                     <p>实现小型《开心消消乐》游戏，集成网络用户系统实现账号与成绩同步，作为优秀项目在课堂上进行分享展示。</p>
                     <div class="meta">
                         <span><span class="lang-dot" style="background:#b07219;"></span> Java</span>
-                        <span><span class="lang-dot" style="background:#3572A5;"></span> Network</span>
+                        <span><span class="lang-dot" style="background:#3572A5;"></span> Socket</span>
                     </div>
                 </a>
             </div>
@@ -634,6 +666,12 @@
         <section id="experience">
             <h2><span class="icon">💼</span> Experience</h2>
             <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">2025.06 - 2025.09</div>
+                    <div class="timeline-title">OPPO · 实习</div>
+                    <p>基于 EfficientNet 构建人脸语义分割主干网络并在 CelebAMask-HQ 上达到 mIoU &gt;86.4%，探索 SAM 在 OSegFace
+                        人脸分割中的应用，并开发眼部遮罩半自动化标注工具降低人力成本。</p>
+                </div>
                 <div class="timeline-item">
                     <div class="timeline-date">2023.09 - Present</div>
                     <div class="timeline-title">南方科技大学 · 计算机科学与技术 · 本科</div>
