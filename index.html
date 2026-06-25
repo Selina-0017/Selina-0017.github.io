@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人主页</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0f172a;
+            --card: #1e293b;
+            --text: #e2e8f0;
+            --text-dim: #94a3b8;
+            --accent: #38bdf8;
+            --accent2: #818cf8;
+            --border: #334155;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans SC', -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 80px 0 40px;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 2px solid var(--accent);
+            margin-bottom: 20px;
+            object-fit: cover;
+        }
+
+        .hero h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .hero .subtitle {
+            color: var(--text-dim);
+            font-size: 1rem;
+            margin-bottom: 16px;
+        }
+
+        .hero .bio {
+            color: var(--text-dim);
+            max-width: 560px;
+            margin: 0 auto 20px;
+            font-size: 0.95rem;
+        }
+
+        .links {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .links a {
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.9rem;
+            padding: 6px 14px;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            transition: all 0.2s;
+        }
+
+        .links a:hover {
+            border-color: var(--accent);
+            background: rgba(56, 189, 248, 0.08);
+        }
+
+        /* Sections */
+        section {
+            padding: 40px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        h2 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h2 .icon {
+            font-size: 1.1rem;
+        }
+
+        /* Tech Stack */
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            background: var(--card);
+            border: 1px solid var(--border);
+            padding: 5px 12px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            color: var(--text-dim);
+        }
+
+        .tag.highlight {
+            color: var(--accent);
+            border-color: rgba(56, 189, 248, 0.3);
+        }
+
+        /* Projects */
+        .projects {
+            display: grid;
+            gap: 16px;
+        }
+
+        .project-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px 24px;
+            transition: transform 0.15s, border-color 0.15s;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .project-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--accent);
+        }
+
+        .project-card h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .project-card p {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .project-card .meta {
+            display: flex;
+            gap: 12px;
+            font-size: 0.8rem;
+            color: var(--text-dim);
+        }
+
+        .project-card .meta span {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .lang-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            color: var(--text-dim);
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+
+            .hero {
+                padding: 50px 0 30px;
+            }
+
+            section {
+                padding: 30px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Hero -->
+        <div class="hero">
+            <img src="https://github.com/你的用户名.png" alt="avatar" class="avatar" onerror="this.style.display='none'">
+            <h1>孙凌娜</h1>
+            <div class="subtitle">大三 · 计算机系统与优化</div>
+            <p class="bio">
+                关注编译器基础设施、GPU编程与系统安全，熟悉 LLVM/MLIR、eBPF 与 Linux 内核。
+                热爱底层技术，追求代码的正确性与性能边界。
+            </p>
+            <div class="links">
+                <a href="https://github.com/你的用户名" target="_blank">GitHub</a>
+                <a href="mailto:12313552@mail.sustech.com">Email</a>
+                <a href="#projects">Projects</a>
+            </div>
+        </div>
+
+        <!-- Tech Stack -->
+        <section>
+            <h2><span class="icon">🛠️</span> 技术栈</h2>
+            <div class="tags">
+                <span class="tag highlight">C++</span>
+                <span class="tag highlight">Python</span>
+                <span class="tag">CUDA</span>
+                <span class="tag highlight">LLVM</span>
+                <span class="tag highlight">MLIR</span>
+                <span class="tag">eBPF</span>
+                <span class="tag">Linux Kernel</span>
+                <span class="tag">PyTorch</span>
+                <span class="tag">Git</span>
+            </div>
+        </section>
+
+        <!-- Projects -->
+        <section id="projects">
+            <h2><span class="icon">📌</span> 精选项目</h2>
+            <div class="projects">
+                <a href="https://github.com/Selina-0017/MSET" class="project-card" target="_blank">
+                    <h3>CRISP <span style="color:var(--accent2);font-size:0.85rem;font-weight:400;">样例迁移</span></h3>
+                    <p></p>
+                    <div class="meta">
+                        <span><span class="lang-dot" style="background:#f34b7d;"></span> C++</span>
+                        <span><span class="lang-dot" style="background:#384d54;"></span> MLIR</span>
+                    </div>
+                </a>
+
+                <a href="https://github.com/Selina-0017/yolo-world-eval" class="project-card" target="_blank">
+                    <h3>YOLO-World 复现与评估</h3>
+                    <p>开放词汇目标检测模型在 COCO 数据集上的端到端复现，包含数据预处理、模型推理与 mAP 评估，部署于华为云 GPU 实例。</p>
+                    <div class="meta">
+                        <span><span class="lang-dot" style="background:#3572A5;"></span> Python</span>
+                        <span><span class="lang-dot" style="background:#10002f;"></span> PyTorch</span>
+                    </div>
+                </a>
+
+                <a href="https://github.com/你的用户名/ext2-lab" class="project-card" target="_blank">
+                    <h3>ext2 文件系统实现</h3>
+                    <p>教学操作系统中的 ext2 文件系统完整实现，涵盖 inode 管理、目录项、块分配与缓存策略，深入理解 Linux VFS 层。</p>
+                    <div class="meta">
+                        <span><span class="lang-dot" style="background:#555;"></span> C</span>
+                        <span><span class="lang-dot" style="background:#6e4a13;"></span> OS</span>
+                    </div>
+                </a>
+
+                <a href="https://github.com/你的用户名/reversi-ai" class="project-card" target="_blank">
+                    <h3>Reversi AI</h3>
+                    <p>反黑白棋 AI 算法设计，基于 α-β 剪枝搜索与遗传算法参数调优，实现人机对弈与策略评估。</p>
+                    <div class="meta">
+                        <span><span class="lang-dot" style="background:#f34b7d;"></span> C++</span>
+                        <span><span class="lang-dot" style="background:#b07219;"></span> Algorithm</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <footer>
+            <p>Built with plain HTML/CSS · Hosted on GitHub Pages</p>
+        </footer>
+    </div>
+</body>
+
+</html>
